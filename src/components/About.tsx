@@ -2,12 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
-  FaReact, FaNodeJs, FaPython, FaDocker, FaGitAlt, FaAws,
-  FaHtml5, FaCss3Alt, FaJs, FaDatabase
+  FaReact, FaGitAlt, FaAws, FaJs
 } from 'react-icons/fa';
 import { 
-  SiTypescript, SiNextdotjs, SiTailwindcss, SiMongodb, 
-  SiPostgresql, SiRedis, SiGraphql, SiFirebase 
+  SiTypescript, SiTailwindcss, SiFlutter, SiDart,
+  SiSvelte, SiYaml
 } from 'react-icons/si';
 
 interface Skill {
@@ -25,16 +24,14 @@ const About: React.FC = () => {
 
   const skills: Skill[] = [
     { name: 'React', icon: FaReact, color: 'text-blue-400', level: 95 },
+    { name: 'Flutter', icon: SiFlutter, color: 'text-blue-500', level: 92 },
     { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600', level: 90 },
-    { name: 'Next.js', icon: SiNextdotjs, color: 'text-gray-800 dark:text-white', level: 88 },
-    { name: 'Node.js', icon: FaNodeJs, color: 'text-green-500', level: 85 },
-    { name: 'Python', icon: FaPython, color: 'text-yellow-500', level: 82 },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-500', level: 92 },
-    { name: 'MongoDB', icon: SiMongodb, color: 'text-green-600', level: 80 },
-    { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-blue-700', level: 78 },
-    { name: 'Docker', icon: FaDocker, color: 'text-blue-500', level: 75 },
-    { name: 'AWS', icon: FaAws, color: 'text-orange-500', level: 70 },
-    { name: 'GraphQL', icon: SiGraphql, color: 'text-pink-600', level: 85 },
+    { name: 'JavaScript', icon: FaJs, color: 'text-yellow-400', level: 93 },
+    { name: 'Dart', icon: SiDart, color: 'text-blue-400', level: 90 },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-500', level: 88 },
+    { name: 'Svelte', icon: SiSvelte, color: 'text-orange-600', level: 85 },
+    { name: 'AWS', icon: FaAws, color: 'text-orange-500', level: 82 },
+    { name: 'CI/CD', icon: SiYaml, color: 'text-gray-600', level: 88 },
     { name: 'Git', icon: FaGitAlt, color: 'text-red-500', level: 90 },
   ];
 
@@ -74,7 +71,7 @@ const About: React.FC = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Passionate developer with a love for creating beautiful, functional web experiences
+            Frontend Engineer specializing in React, Flutter, and healthcare technology innovation
           </p>
         </motion.div>
 
@@ -89,22 +86,23 @@ const About: React.FC = () => {
             <div className="glass-effect p-8 rounded-2xl">
               <h3 className="text-2xl font-bold mb-4 gradient-text">Who I Am</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                I'm a passionate full-stack developer with over 5 years of experience in building 
-                modern web applications. I love turning complex problems into simple, beautiful, 
-                and intuitive solutions.
+                I'm a Frontend Engineer at Raxa with expertise in React, Flutter, and modern web technologies. 
+                I specialize in building healthcare solutions, integrating complex systems like ABDM, NHA, HPR, 
+                and HFR modules while ensuring seamless user experiences.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                When I'm not coding, you can find me exploring new technologies, contributing to 
-                open-source projects, or sharing my knowledge through technical writing and mentoring.
+                Currently driving deployments, CI/CD pipelines, and E2E testing metrics. I'm passionate about 
+                creating digital health solutions that make a real impact, from health lockers to real-time 
+                chat features for healthcare providers and patients.
               </p>
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <h4 className="text-3xl font-bold gradient-text">50+</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</p>
+                  <h4 className="text-3xl font-bold gradient-text">10+</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Healthcare Modules</p>
                 </div>
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <h4 className="text-3xl font-bold gradient-text">5+</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Years Experience</p>
+                  <h4 className="text-3xl font-bold gradient-text">2.5+</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Years at Raxa</p>
                 </div>
               </div>
             </div>
@@ -166,9 +164,9 @@ const About: React.FC = () => {
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
             
             {[
-              { year: '2023', title: 'Senior Full Stack Developer', company: 'Tech Corp', description: 'Leading development of scalable web applications' },
-              { year: '2021', title: 'Full Stack Developer', company: 'StartupXYZ', description: 'Built multiple features for SaaS platform' },
-              { year: '2019', title: 'Junior Developer', company: 'Web Agency', description: 'Started my professional journey' },
+              { year: '2022 - Present', title: 'Frontend Engineer', company: 'Raxa', description: 'Driving deployments, CI/CD pipelines, E2E tests, and healthcare integrations' },
+              { year: '2023', title: 'Raxa Assistant', company: 'Raxa', description: 'Built AI assistant for health seekers and providers with real-time chat' },
+              { year: '2022', title: 'ABDM Integration', company: 'Raxa', description: 'Integrated Ayushman Bharat Digital Mission and National Health Authority modules' },
             ].map((item, index) => (
               <motion.div
                 key={index}

@@ -5,6 +5,7 @@ import {
   FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane,
   FaLinkedin, FaGithub
 } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [ref, inView] = useInView({
@@ -33,25 +34,45 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    setTimeout(() => setSubmitStatus('idle'), 5000);
+    try {
+      // EmailJS Configuration
+      const SERVICE_ID = 'service_83ht5dg';
+      const TEMPLATE_ID = 'template_8bmqpqf';
+      const PUBLIC_KEY = 'Ra7C6JnbyxBpztKMd';
+      
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'chshivam815@gmail.com',
+        },
+        PUBLIC_KEY
+      );
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Email send failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   const contactInfo = [
     { icon: FaEnvelope, label: 'Email', value: 'chshivam815@gmail.com', href: 'mailto:chshivam815@gmail.com' },
     { icon: FaPhone, label: 'Phone', value: '+91 7088595874', href: 'tel:+917088595874' },
-    { icon: FaMapMarkerAlt, label: 'Location', value: 'Faridabad, Haryana', href: '#' },
+    { icon: FaMapMarkerAlt, label: 'Location', value: 'Delhi, India', href: '#' },
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/shivam-choudhary-058061218/', color: 'hover:text-blue-600' },
-    { icon: FaGithub, href: 'https://github.com/Shivam-dev925', color: 'hover:text-gray-900 dark:hover:text-white' },
+    { icon: FaLinkedin, href: 'https://linkedin.com', color: 'hover:text-blue-600' },
+    { icon: FaGithub, href: 'https://github.com', color: 'hover:text-gray-900 dark:hover:text-white' },
   ];
 
   return (
@@ -68,8 +89,8 @@ const Contact: React.FC = () => {
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I'm always interested in hearing about new projects and opportunities. 
-            Feel free to reach out if you'd like to work together!
+            I'm always interested in hearing about new healthcare tech projects and opportunities. 
+            Let's collaborate to build innovative solutions together!
           </p>
         </motion.div>
 
@@ -280,7 +301,7 @@ const Contact: React.FC = () => {
                 <div>
                   <p className="font-medium">Currently Available</p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Open to new opportunities and collaborations
+                    Open to healthcare tech projects and frontend roles
                   </p>
                 </div>
               </div>

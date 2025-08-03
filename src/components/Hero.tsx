@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaArrowDown, FaRocket, FaCode, FaMagic } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
-  const text = "Full Stack Developer";
+  const text = "Frontend Engineer";
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -145,8 +145,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto"
           >
-            I craft beautiful, performant web experiences with modern technologies.
-            Passionate about clean code, innovative solutions, and continuous learning.
+            Specializing in React, Flutter, and modern web technologies. Currently driving healthcare 
+            innovation at Raxa with expertise in CI/CD, E2E testing, and seamless user experiences.
           </motion.p>
 
           {/* CTA Buttons */}

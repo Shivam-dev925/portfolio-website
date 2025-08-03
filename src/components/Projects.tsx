@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaEye } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaCode, FaEye } from 'react-icons/fa';
 
 interface Project {
   id: number;
@@ -10,7 +10,6 @@ interface Project {
   longDescription: string;
   image: string;
   technologies: string[];
-  githubUrl: string;
   liveUrl: string;
   category: string;
 }
@@ -27,78 +26,73 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack online shopping platform with payment integration',
-      longDescription: 'Built a complete e-commerce solution with user authentication, product management, shopping cart, and secure payment processing using Stripe.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      title: 'Raxa Healthcare Platform',
+      description: 'Digital health solutions with ABDM integration and real-time features',
+      longDescription: 'Integrated ABDM (Ayushman Bharat Digital Mission), NHA (National Health Authority), HPR (Healthcare Professional Registry), and HFR (Health Facility Registry) modules. Built digital health lockers, real-time chat features, and subscription flows with promocodes.',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
+      technologies: ['React', 'Flutter', 'ABDM', 'NHA', 'Real-time Chat', 'CI/CD'],
+      liveUrl: 'https://www.raxa.io/raxaDesktop/',
       category: 'fullstack',
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates',
-      longDescription: 'Developed a real-time task management application with drag-and-drop functionality, team collaboration features, and activity tracking.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
-      technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Socket.io'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'fullstack',
-    },
-    {
-      id: 3,
-      title: 'AI Image Generator',
-      description: 'Web app that generates images using AI models',
-      longDescription: 'Created an innovative web application that leverages AI models to generate unique images based on user prompts and preferences.',
-      image: 'https://images.unsplash.com/photo-1547954575-855750c57bd3?w=800&h=600&fit=crop',
-      technologies: ['React', 'Python', 'TensorFlow', 'FastAPI', 'Docker'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      title: 'Raxa Assistant',
+      description: 'AI-powered healthcare assistant for providers and patients',
+      longDescription: 'Built an intelligent assistant for health seekers and healthcare providers. Integrated with AI Langchain agents, webSockets, and XMPP for real-time communication and intelligent responses.',
+      image: 'https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=800&h=600&fit=crop',
+      technologies: ['Flutter', 'AI Langchain', 'WebSockets', 'XMPP'],
+      liveUrl: 'https://play.google.com/store/apps/details?id=com.raxa.EMR',
       category: 'ai',
     },
     {
+      id: 3,
+      title: 'WTM App - Water Taxi Miami',
+      description: 'Mobile app for water taxi booking with QR code validation',
+      longDescription: 'Developed a Flutter-based mobile application for Water Taxi Miami. Implemented ticket booking system with QR code generation and verification process for ride providers to authenticate bookings.',
+      image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop',
+      technologies: ['Flutter', 'Firebase', 'QR Code', 'Real-time Notifications'],
+      liveUrl: 'https://apps.apple.com/in/app/water-taxi-miami/id1545116369',
+      category: 'mobile',
+    },
+    {
       id: 4,
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather app with forecasts and interactive maps',
-      longDescription: 'Designed and built a responsive weather dashboard featuring real-time data, interactive maps, and detailed forecasts with stunning visualizations.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Mapbox'],
-      githubUrl: 'https://github.com',
+      title: 'Netflix Clone',
+      description: 'Full-featured streaming platform clone with authentication',
+      longDescription: 'React-based project using IMDB API. Integrated full functionality including login and signup with Google authentication and email/password using Firebase backend.',
+      image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&h=600&fit=crop',
+      technologies: ['React', 'Firebase', 'Google Auth', 'IMDB API'],
       liveUrl: 'https://example.com',
       category: 'frontend',
     },
     {
       id: 5,
-      title: 'Social Media Analytics',
-      description: 'Dashboard for tracking social media performance',
-      longDescription: 'Built a comprehensive analytics platform that aggregates data from multiple social media platforms and provides actionable insights.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-      technologies: ['React', 'D3.js', 'Node.js', 'Redis', 'GraphQL'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'fullstack',
+      title: 'HumanWrk Mobile App',
+      description: 'Productivity and employee engagement platform',
+      longDescription: 'Contributed to the HumanWrk mobile app available on Android and iOS. Implemented secure authentication with Firebase, utilized BLoC state management, and refined UI/UX with modern app themes.',
+      image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop',
+      technologies: ['Flutter', 'Firebase', 'BLoC', 'Dart'],
+      liveUrl: 'https://humanwrk.com',
+      category: 'mobile',
     },
     {
       id: 6,
-      title: 'Mobile Banking UI',
-      description: 'Modern UI design for mobile banking application',
-      longDescription: 'Crafted an intuitive and secure mobile banking interface with biometric authentication, transaction history, and budget tracking features.',
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop',
-      technologies: ['React Native', 'TypeScript', 'Styled Components'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      category: 'mobile',
+      title: 'CI/CD Pipeline Monitoring',
+      description: 'YAML-based pipelines for API status monitoring',
+      longDescription: 'Created comprehensive pipelines to monitor API status that can be run manually. Implemented automated testing, deployment workflows, and health checks for continuous integration.',
+      image: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=800&h=600&fit=crop',
+      technologies: ['YAML', 'CI/CD', 'AWS Device Farm', 'AWS CodeCatalyst'],
+      liveUrl: 'https://shivam-dev925.github.io/javascript_project/',
+      category: 'devops',
     },
   ];
 
   const categories = [
     { value: 'all', label: 'All Projects' },
-    { value: 'fullstack', label: 'Full Stack' },
+    { value: 'fullstack', label: 'Healthcare' },
     { value: 'frontend', label: 'Frontend' },
     { value: 'mobile', label: 'Mobile' },
     { value: 'ai', label: 'AI/ML' },
+    { value: 'devops', label: 'DevOps' },
   ];
 
   const filteredProjects = selectedCategory === 'all' 
@@ -198,32 +192,20 @@ const Projects: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                        <motion.a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: hoveredProject === project.id ? 1 : 0, x: hoveredProject === project.id ? 0 : -20 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <FaGithub size={20} />
-                        </motion.a>
+                      <div className="absolute bottom-4 left-4 right-4 flex justify-center items-center">
                         <motion.a
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                          className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors flex items-center gap-2"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: hoveredProject === project.id ? 1 : 0, x: hoveredProject === project.id ? 0 : 20 }}
-                          transition={{ duration: 0.2, delay: 0.1 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: hoveredProject === project.id ? 1 : 0, y: hoveredProject === project.id ? 0 : 20 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          <FaExternalLinkAlt size={20} />
+                          <FaExternalLinkAlt size={16} />
+                          <span className="text-sm font-medium">View Project</span>
                         </motion.a>
                       </div>
                     </div>
