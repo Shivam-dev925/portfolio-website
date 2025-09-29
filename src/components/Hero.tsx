@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaArrowDown, FaRocket, FaCode, FaMagic } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
-  const text = "Frontend Engineer";
+  const text = "Lead Frontend Developer";
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -100,14 +100,37 @@ const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Welcome text */}
+          {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-8 flex justify-center"
           >
-            <span className="text-lg md:text-xl text-gray-600 dark:text-gray-400">Welcome to my portfolio</span>
+            <div className="relative">
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-600 to-purple-600 shadow-2xl">
+                <img
+                  src="/portfolio-website/images/79845177.jpeg"
+                  alt="Shivam Choudhary"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://ui-avatars.com/api/?name=Shivam+Choudhary&size=200&background=6366f1&color=fff';
+                  }}
+                />
+              </div>
+              <motion.div
+                className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                <span className="text-2xl">👨‍💻</span>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Name with gradient */}
@@ -145,8 +168,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto"
           >
-            Specializing in React, Flutter, and modern web technologies. Currently driving healthcare 
-            innovation at Raxa with expertise in CI/CD, E2E testing, and seamless user experiences.
+            Frontend Engineer experienced in React, Flutter, and CI/CD. Build, ship, and scale production
+            features end-to-end with a focus on reliability, performance, and user experience.
           </motion.p>
 
           {/* CTA Buttons */}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
-  FaReact, FaGitAlt, FaAws, FaJs
+import {
+  FaReact, FaAws, FaJs
 } from 'react-icons/fa';
 import { 
   SiTypescript, SiTailwindcss, SiFlutter, SiDart,
@@ -28,11 +28,11 @@ const About: React.FC = () => {
     { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600', level: 90 },
     { name: 'JavaScript', icon: FaJs, color: 'text-yellow-400', level: 93 },
     { name: 'Dart', icon: SiDart, color: 'text-blue-400', level: 90 },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-500', level: 88 },
+    { name: 'Tailwind', icon: SiTailwindcss, color: 'text-teal-500', level: 88 },
     { name: 'Svelte', icon: SiSvelte, color: 'text-orange-600', level: 85 },
-    { name: 'AWS', icon: FaAws, color: 'text-orange-500', level: 82 },
-    { name: 'CI/CD', icon: SiYaml, color: 'text-gray-600', level: 88 },
-    { name: 'Git', icon: FaGitAlt, color: 'text-red-500', level: 90 },
+    { name: 'CI/CD', icon: SiYaml, color: 'text-gray-600', level: 90 },
+    { name: 'AWS CodeCatalyst', icon: FaAws, color: 'text-orange-500', level: 85 },
+    { name: 'AWS Device Farm', icon: FaAws, color: 'text-orange-400', level: 82 },
   ];
 
   const containerVariants = {
@@ -71,7 +71,7 @@ const About: React.FC = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Frontend Engineer specializing in React, Flutter, and healthcare technology innovation
+            Frontend Engineer experienced in React, Flutter, and CI/CD with focus on healthcare innovation
           </p>
         </motion.div>
 
@@ -86,23 +86,23 @@ const About: React.FC = () => {
             <div className="glass-effect p-8 rounded-2xl">
               <h3 className="text-2xl font-bold mb-4 gradient-text">Who I Am</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                I'm a Frontend Engineer at Raxa with expertise in React, Flutter, and modern web technologies. 
-                I specialize in building healthcare solutions, integrating complex systems like ABDM, NHA, HPR, 
-                and HFR modules while ensuring seamless user experiences.
+                I'm a Lead Frontend Developer at Raxa with 4+ years of experience in React, Flutter, and CI/CD. I build, ship, and scale
+                production features end-to-end with a focus on reliability, performance, and user experience.
+                I've integrated complex healthcare systems like ABDM, NHA, HPR, and HFR modules.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Currently driving deployments, CI/CD pipelines, and E2E testing metrics. I'm passionate about 
-                creating digital health solutions that make a real impact, from health lockers to real-time 
-                chat features for healthcare providers and patients.
+                I own CI/CD pipelines and deployment automation to increase release cadence and stability.
+                My work includes migrating legacy Ext.js to React, delivering Raxa Assistant with real-time chat,
+                and implementing QCI-certified digital health record lockers and doctor workflows.
               </p>
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <h4 className="text-3xl font-bold gradient-text">10+</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Healthcare Modules</p>
+                  <h4 className="text-3xl font-bold gradient-text">5+</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Major Projects</p>
                 </div>
                 <div className="text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <h4 className="text-3xl font-bold gradient-text">2.5+</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Years at Raxa</p>
+                  <h4 className="text-3xl font-bold gradient-text">4+</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Years Experience</p>
                 </div>
               </div>
             </div>
@@ -150,42 +150,123 @@ const About: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Experience Timeline */}
+        {/* Professional Experience */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-20"
         >
-          <h3 className="text-2xl font-bold mb-8 text-center">
-            My <span className="gradient-text">Journey</span>
-          </h3>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
-            
-            {[
-              { year: '2022 - Present', title: 'Frontend Engineer', company: 'Raxa', description: 'Driving deployments, CI/CD pipelines, E2E tests, and healthcare integrations' },
-              { year: '2023', title: 'Raxa Assistant', company: 'Raxa', description: 'Built AI assistant for health seekers and providers with real-time chat' },
-              { year: '2022', title: 'ABDM Integration', company: 'Raxa', description: 'Integrated Ayushman Bharat Digital Mission and National Health Authority modules' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
-                className={`flex items-center mb-8 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-              >
-                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                  <div className="glass-effect p-6 rounded-xl card-hover">
-                    <span className="text-sm font-bold gradient-text">{item.year}</span>
-                    <h4 className="text-lg font-bold mt-2">{item.title}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{item.company}</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">{item.description}</p>
+          <div className="text-center mb-12">
+            <span className="text-sm font-bold text-purple-600 tracking-wider">EXPERIENCE</span>
+            <h3 className="text-3xl md:text-4xl font-bold mt-2">
+              My Professional <span className="gradient-text">Journey</span>
+            </h3>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
+
+            {/* Frontend Engineer at Raxa */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="relative mb-12"
+            >
+              <div className="absolute left-8 -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+              <div className="ml-16 glass-effect p-8 rounded-2xl">
+                <div className="flex flex-wrap items-start justify-between mb-4">
+                  <div>
+                    <h4 className="text-2xl font-bold">Lead Frontend Developer</h4>
+                    <p className="text-lg font-semibold gradient-text">Raxa Health Information Services</p>
+                    <div className="flex gap-4 mt-2">
+                      <a href="https://www.raxa.io" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline flex items-center gap-1">
+                        🌐 Website
+                      </a>
+                      <a href="https://play.google.com/store/apps/details?id=com.raxa.EMR" target="_blank" rel="noopener noreferrer" className="text-sm text-green-600 hover:underline flex items-center gap-1">
+                        ▶ Play Store
+                      </a>
+                    </div>
+                  </div>
+                  <span className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                    📅 May 2022 - Present
+                  </span>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Owned CI/CD pipelines and deployment automation to increase release cadence</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Integrated ABDM, NHA, HPR, HFR modules for secure data flows</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Migrated onboarding from legacy Ext.js to React</span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Delivered Raxa Assistant with real-time chat features</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Built QCI-certified digital health record lockers</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-600 mt-1">•</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">Implemented doctor workflows and patient systems</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="flex gap-6 mt-6">
+                  <span className="text-sm flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                    📍 Delhi, India
+                  </span>
+                  <span className="text-sm flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                    🏥 Healthcare Technology
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Key Projects */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="relative"
+            >
+              <div className="absolute left-8 -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full"></div>
+              <div className="ml-16 glass-effect p-6 rounded-2xl">
+                <h4 className="text-xl font-bold mb-4">Key Achievements at Raxa</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <h5 className="font-bold text-sm gradient-text">ABDM Scan & Share (2025)</h5>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Implemented ABHA address creation, login, and scan-share feature to bypass OPD queues</p>
+                  </div>
+                  <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <h5 className="font-bold text-sm gradient-text">Raxa Assistant (2023)</h5>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">AI assistant with real-time chat for health seekers and providers</p>
+                  </div>
+                  <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <h5 className="font-bold text-sm gradient-text">ABDM Integration (2022)</h5>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Integrated Ayushman Bharat Digital Mission modules</p>
+                  </div>
+                  <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <h5 className="font-bold text-sm gradient-text">CI/CD Pipelines</h5>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Authored YAML pipelines for API monitoring and deployment</p>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaBars, FaTimes, FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,6 +80,21 @@ const Navigation: React.FC = () => {
                   <social.icon size={20} />
                 </motion.a>
               ))}
+
+              {/* Download CV Button */}
+              <motion.a
+                href="/portfolio-website/Shivam_Choudhary_Resume.pdf"
+                download="Shivam_Choudhary_Resume.pdf"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium text-sm hover:shadow-lg transition-all"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaDownload size={14} />
+                <span>Download CV</span>
+              </motion.a>
             </div>
           </div>
 
@@ -135,6 +150,20 @@ const Navigation: React.FC = () => {
                     </motion.a>
                   ))}
                 </div>
+
+                {/* Download CV Button for Mobile */}
+                <motion.a
+                  href="/portfolio-website/Shivam_Choudhary_Resume.pdf"
+                  download="Shivam_Choudhary_Resume.pdf"
+                  className="flex items-center justify-center gap-2 mx-auto mt-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium text-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <FaDownload size={14} />
+                  <span>Download CV</span>
+                </motion.a>
               </div>
             </motion.div>
           )}
